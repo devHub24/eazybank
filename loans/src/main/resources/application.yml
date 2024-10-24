@@ -1,0 +1,36 @@
+
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ''
+
+  application:
+    name: "loans"
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dia    lect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8191
+
+build:
+  version: "1.0"
+
+loans:
+  message: "Hi there from loans"
+  contactDetails:
+    name: "Santhosh"
+    email: "santhosh@gmail.com"
+  onCallSupport:
+    - (91)9988998899
+    - (91)8899889988
+
+
