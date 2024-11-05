@@ -94,8 +94,7 @@ public class AccountsController {
                 .body(new ResponseDto(AccountsConstants.STATUS_200,AccountsConstants.MESSAGE_200));
     }
 
-    @Value("${build.version}")
-    private String buildVersion;
+
 
     @Autowired
     private Environment environment;
@@ -107,10 +106,7 @@ public class AccountsController {
     public String getJavaVersion(){
         return environment.getProperty("MAVEN_HOME");
     }
-    @GetMapping("/getVersion")
-    public String getVersion(){
-        return buildVersion;
-    }
+
 
     @GetMapping("/getAccountsContactInfo")
     public AccountsContactInfo getContactInfo(){

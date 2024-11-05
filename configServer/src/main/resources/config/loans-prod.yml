@@ -1,13 +1,10 @@
-spring:
-  config:
-    activate:
-      on-profile: "prod"
+
 
 build:
   version: "2.0"
 
-account:
-  message: "Hi there from account Production"
+loans:
+  message: "Hi there from loans from prod"
   contactDetails:
     name: "Santhosh"
     email: "santhosh@gmail.com"

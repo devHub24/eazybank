@@ -1,13 +1,13 @@
-spring:
-  config:
-    activate:
-      on-profile: "qa"
+
+
+
+
 
 build:
-  version: "3.0"
+  version: "1.0"
 
-loans:
-  message: "Hi there from loans from qa"
+cards:
+  message: "Hi there from cards"
   contactDetails:
     name: "Santhosh"
     email: "santhosh@gmail.com"

@@ -1,10 +1,7 @@
-spring:
-  config:
-    activate:
-      on-profile: "qa"
+
 
 cards:
-  message: "Hi there from cards from qa"
+  message: "Hi there from cards from prod"
   contactDetails:
     name: "Santhosh"
     email: "santhosh@gmail.com"
@@ -13,4 +10,4 @@ cards:
     - (91)8899889988
 
 build:
-  version: "3.0"
+  version: "2.0"

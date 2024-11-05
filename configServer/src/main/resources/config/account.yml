@@ -1,0 +1,13 @@
+
+build:
+  version: "1.0"
+
+account:
+  message: "Hi there from account"
+  contactDetails:
+    name: "Santhosh"
+    email: "santhosh@gmail.com"
+  onCallSupport:
+    - (91)9988998899
+    - (91)8899889988
+
