@@ -23,8 +23,18 @@ spring:
 
   config:
     import: "optional:configserver:http://localhost:8071/"
+
 server:
   port: 8181
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+  endpoint:
+    health:
+      show-details: "always"
 
 
