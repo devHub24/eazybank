@@ -12,6 +12,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -120,5 +121,21 @@ public class LoansController {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(resultList);
+    }
+
+    @Value("${build.version}")
+    private String buildVersion;
+
+    @GetMapping("/build-version")
+    public String getBuildVersion(){
+        return buildVersion;
+    }
+
+    @Autowired
+    private LoansContactInfo loansContactInfo;
+
+    @GetMapping("/contact-info")
+    public LoansContactInfo getLoansContactInfo(){
+        return loansContactInfo;
     }
 }

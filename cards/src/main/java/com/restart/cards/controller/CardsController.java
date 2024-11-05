@@ -14,6 +14,8 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -149,6 +151,22 @@ public class CardsController {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(new ResponseDto(STATUS_200,MESSAGE_200_DELETE));
+    }
+
+    @Value("${build.version}")
+    private String buildVersion;
+
+    @Autowired
+    private CardsContactInfo cardsContactInfo;
+
+    @GetMapping("build-version")
+    public String getBuildVersion(){
+        return buildVersion;
+    }
+
+    @GetMapping("/contact-info")
+    public CardsContactInfo getContactInfo(){
+        return cardsContactInfo;
     }
 
 }
