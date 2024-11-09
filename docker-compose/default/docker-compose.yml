@@ -17,8 +17,8 @@ services:
 
 
   configServer:
-    image: "sandydocker14/configserver:v4"
-    container_name: configServer-ms-v1
+    image: "sandydocker14/configserver:v6"
+    container_name: configServer-ms-v6
     ports:
       - "8071:8071"
     depends_on:
@@ -35,48 +35,90 @@ services:
       timeout: 5s
 
   account:
-    image: "sandydocker14/account:v4"
-    container_name: account-ms-v4
+    image: "sandydocker14/account:v6"
+    container_name: account-ms-v6
     ports:
       - "8181:8181"
     depends_on:
       configServer:
         condition: service_healthy
+      accountdb:
+        condition: service_healthy
     environment:
       SPRING_APPLICATION_NAME: "account"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://accountdb/accountdb"
     extends:
       file: common-config.yml
       service: microservice-configserver-config
 
 
   loans:
-    image: "sandydocker14/loans:v4"
-    container_name: loans-ms-v4
+    image: "sandydocker14/loans:v6"
+    container_name: loans-ms-v6
     ports:
       - "8191:8191"
     depends_on:
       configServer:
         condition: service_healthy
+      loansdb:
+        condition: service_healthy
     environment:
       SPRING_APPLICATION_NAME: "loans"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://loansdb/loansdb"
     extends:
       file: common-config.yml
       service: microservice-configserver-config
 
   cards:
-    image: "sandydocker14/cards:v4"
-    container_name: cards-ms-v4
+    image: "sandydocker14/cards:v6"
+    container_name: cards-ms-v6
     ports:
       - "8292:8292"
     depends_on:
       configServer:
         condition: service_healthy
+      cardsdb:
+        condition: service_healthy
     environment:
       SPRING_APPLICATION_NAME: "cards"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://cardsdb/cardsdb"
     extends:
       file: common-config.yml
       service: microservice-configserver-config
 
+  accountdb:
+    container_name: accountdb
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: accountdb
+    extends:
+      file: common-config.yml
+      service: microservice-db-config
+
+  cardsdb:
+    container_name: cardsdb
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: cardsdb
+    extends:
+      file: common-config.yml
+      service: microservice-db-config
+
+  loansdb:
+    extends:
+      file: common-config.yml
+      service: microservice-db-config
+    container_name: loansdb
+    ports:
+      - "3308:3306"
+    environment:
+      MYSQL_DATABASE: loansdb
+
+
 networks:
   eazybank:
     driver: "bridge"
+
+

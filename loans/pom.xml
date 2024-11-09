@@ -58,11 +58,6 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>com.mysql</groupId>
@@ -121,7 +116,7 @@
 				<version>3.3.2</version>
 				<configuration>
 					<to>
-						<image>sandydocker14/${project.artifactId}:v4</image>
+						<image>sandydocker14/${project.artifactId}:v6</image>
 					</to>
 					<from>
 						<image>eclipse-temurin:21-jre</image>
