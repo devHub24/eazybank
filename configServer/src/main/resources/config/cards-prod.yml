@@ -1,0 +1,13 @@
+
+
+cards:
+  message: "Hi there from cards from prod"
+  contactDetails:
+    name: "Santhosh"
+    email: "santhosh@gmail.com"
+  onCallSupport:
+    - (91)9988998899
+    - (91)8899889988
+
+build:
+  version: "2.0"

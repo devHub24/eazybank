@@ -1,0 +1,13 @@
+
+
+build:
+  version: "2.0"
+
+account:
+  message: "Hi there from account Production"
+  contactDetails:
+    name: "Santhosh"
+    email: "santhosh@gmail.com"
+  onCallSupport:
+    - (91)9988998899
+    - (91)8899889988
